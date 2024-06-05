@@ -308,12 +308,28 @@ class _TileState extends State<Tile> {
                   child: Container(
                     height: 40.h,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(56.r),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 10,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                const Center(child: Text('Gladkova., 25')),
+                const Center(
+                  child: Text(
+                    'Gladkova., 25',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
                 Center(
                   child: Container(
                     height: 38.h,
