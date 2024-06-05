@@ -3,5 +3,11 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
-    }
+    },
+    "appName": "Real Estate App",
+    "hiMarina": "Hi, Marina",
+    "letsSelect":  "Let's select your perfect place",
+    "buy": "BUY",
+    "rent": "RENT",
+    "offers": "offers"
 }

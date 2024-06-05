@@ -3,5 +3,11 @@
     "counterAppBarTitle": "Contador",
     "@counterAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del contador"
-    }
+    },
+    "appName": "Real Estate App",
+    "hiMarina": "Hi, Marina",
+    "letsSelect":  "Let's select your perfect place",
+    "buy": "BUY",
+    "rent": "RENT",
+    "offers": "offers"
 }
