@@ -77,7 +77,6 @@ unlinked_spec.ds
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/app.flx
 **/ios/Flutter/app.zip
-**/ios/Flutter/.last_build_id
 **/ios/Flutter/flutter_assets/
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/ServiceDefinitions.json
@@ -110,3 +109,24 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+
+# OBKM Custom
+*google-services.json
+*GoogleService-Info.plist
+
+.fvm/flutter_sdk
+
+*.freezed.dart
+*.g.dart
+*.env
+*.envv
+
+devtools_options.yaml
+
+/lib/generated/
+/lib/gen/
+
+**/*.freezed.dart
+**/*.g.dart
+**/*.mocks.dart
