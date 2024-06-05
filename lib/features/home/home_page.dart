@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _draggableScrollableController.animateTo(
-        0.7,
+        0.68,
         duration: const Duration(seconds: 2),
         curve: Curves.easeInOut,
       );
@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              8.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
