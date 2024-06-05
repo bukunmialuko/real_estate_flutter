@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:superapp/core/navigation/path/nav_paths.dart';
+import 'package:superapp/features/splash/splash_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -19,7 +20,7 @@ class AppModuleRouter {
         GoRoute(
           parentNavigatorKey: _rootNavigatorKey,
           path: NavPaths.splash.urlPattern,
-          builder: (context, state) => Container(),
+          builder: (context, state) => const SplashPage(),
         ),
 
         /// Home / Root
