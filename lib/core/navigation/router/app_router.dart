@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:superapp/core/navigation/path/nav_paths.dart';
+import 'package:superapp/features/home/home_page.dart';
+import 'package:superapp/features/home/root_page.dart';
 import 'package:superapp/features/splash/splash_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -27,13 +29,13 @@ class AppModuleRouter {
         ShellRoute(
           parentNavigatorKey: _rootNavigatorKey,
           navigatorKey: _shellNavigatorKey,
-          builder: (context, state, child) => Container(),
+          builder: (context, state, child) => RootPage(child: child),
           routes: [
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,
               path: NavPaths.home.urlPattern,
-              pageBuilder: (context, state) => NoTransitionPage(
-                child: Container(),
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: HomePage(),
               ),
             ),
             GoRoute(
