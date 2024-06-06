@@ -39,7 +39,7 @@ class MenuWidget extends StatelessWidget {
 }
 
 class _MenuItems extends StatefulWidget {
-  const _MenuItems({super.key});
+  const _MenuItems();
 
   @override
   State<_MenuItems> createState() => _MenuItemsState();
@@ -80,10 +80,10 @@ class _MenuItemsState extends State<_MenuItems>
         scale: _scaleAnimation,
         alignment: Alignment.bottomLeft,
         child: Container(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(16.0),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: const Column(
             mainAxisSize: MainAxisSize.min,
@@ -102,7 +102,7 @@ class _MenuItemsState extends State<_MenuItems>
 }
 
 class _MenuItem extends StatelessWidget {
-  const _MenuItem({required this.icon, required this.text, super.key});
+  const _MenuItem({required this.icon, required this.text});
   final IconData icon;
   final String text;
 
