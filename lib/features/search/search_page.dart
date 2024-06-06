@@ -122,30 +122,26 @@ class _SearchPageState extends State<SearchPage>
               ),
             ],
           ),
-          // child: Container(
-          //   color: AppColors.black,
-          // ),
         ),
+
+        /// Note: Its common for search to be done in another UI
+
         Align(
           alignment: Alignment.topCenter,
-          child: Container(
-            // color: AppColors.white,
-            /// Note: Its common for search to be done in another UI
-            child: SafeArea(
-              bottom: false,
-              child: Container(
-                margin: EdgeInsets.only(
-                  left: 32.w,
-                  right: 32.w,
-                  top: 10.h,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(child: SearchWidget(scale: _animation)),
-                    SizedBox(width: 8.w),
-                    SearchFilterWidget(scale: _animation),
-                  ],
-                ),
+          child: SafeArea(
+            bottom: false,
+            child: Container(
+              margin: EdgeInsets.only(
+                left: 32.w,
+                right: 32.w,
+                top: 10.h,
+              ),
+              child: Row(
+                children: [
+                  Expanded(child: SearchWidget(scale: _animation)),
+                  SizedBox(width: 8.w),
+                  SearchFilterWidget(scale: _animation),
+                ],
               ),
             ),
           ),
