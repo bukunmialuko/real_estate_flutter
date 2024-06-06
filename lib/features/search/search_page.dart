@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:superapp/core/styling/app_colors.dart';
 import 'package:superapp/features/search/widgets/list_of_variants_widget.dart';
 import 'package:superapp/features/search/widgets/menu_widget.dart';
@@ -40,6 +43,22 @@ class _SearchPageState extends State<SearchPage>
     super.dispose();
   }
 
+  Widget _darkModeTileBuilder(
+    BuildContext context,
+    Widget tileWidget,
+    TileImage tile,
+  ) {
+    return ColorFiltered(
+      colorFilter: const ColorFilter.matrix(<double>[
+        -0.2126, -0.7152, -0.0722, 0, 255, // Red channel
+        -0.2126, -0.7152, -0.0722, 0, 255, // Green channel
+        -0.2126, -0.7152, -0.0722, 0, 255, // Blue channel
+        0, 0, 0, 1, 0, // Alpha channel
+      ]),
+      child: tileWidget,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -49,9 +68,42 @@ class _SearchPageState extends State<SearchPage>
           onTap: () {
             debugPrint('tappable');
           },
-          child: Container(
-            color: AppColors.black,
+          child: FlutterMap(
+            options: const MapOptions(
+              initialCenter: LatLng(59.884772, 30.438456),
+              initialZoom: 12,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                tileProvider: CancellableNetworkTileProvider(),
+                tileBuilder: _darkModeTileBuilder,
+              ),
+              MarkerLayer(
+                markers: [
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.884772, 30.438456),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.darkOrange,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
+          // child: Container(
+          //   color: AppColors.black,
+          // ),
         ),
         Align(
           alignment: Alignment.topCenter,
