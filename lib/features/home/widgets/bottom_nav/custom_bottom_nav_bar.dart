@@ -24,7 +24,7 @@ class CustomBottomNavBar extends StatelessWidget {
           child: Container(
             width: 266.w,
             decoration: BoxDecoration(
-              color: AppColors.darkGrey.withOpacity(0.95),
+              color: AppColors.darkCarton.withOpacity(0.95),
               borderRadius: BorderRadius.circular(60.h),
             ),
             child: Row(
@@ -80,7 +80,7 @@ class _NavItem extends StatelessWidget {
               decoration: BoxDecoration(
                 color: currentIndex == index
                     ? AppColors.darkOrange
-                    : AppColors.darkGrey,
+                    : AppColors.darkCarton,
                 shape: BoxShape.circle,
               ),
               duration: const Duration(milliseconds: 300),

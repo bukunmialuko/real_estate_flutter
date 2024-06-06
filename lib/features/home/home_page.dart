@@ -3,8 +3,10 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:superapp/core/styling/app_colors.dart';
+import 'package:superapp/features/home/widgets/buy_widget.dart';
 import 'package:superapp/features/home/widgets/custom_list_tile.dart';
 import 'package:superapp/features/home/widgets/gradient_background_widget.dart';
+import 'package:superapp/features/home/widgets/rent_widget.dart';
 import 'package:superapp/features/home/widgets/user_location_widget.dart';
 import 'package:superapp/generated/assets.gen.dart';
 import 'package:superapp/l10n/l10n.dart';
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage>
     _draggableScrollableController = DraggableScrollableController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 5000), () {
         _draggableScrollableController.animateTo(
           0.68,
           duration: const Duration(seconds: 2),
@@ -87,99 +89,11 @@ class _HomePageState extends State<HomePage>
                 textAlign: TextAlign.left,
               ),
               32.verticalSpace,
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 160.w,
-                    height: 160.w,
-                    decoration: const BoxDecoration(
-                      color: AppColors.darkOrange,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Column(
-                      children: [
-                        12.verticalSpace,
-                        Text(
-                          context.l10n.buy,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.white,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        28.verticalSpace,
-                        Text(
-                          '1 034',
-                          style: TextStyle(
-                            fontSize: 34.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        2.verticalSpace,
-                        Text(
-                          context.l10n.offers,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.white,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: 160.w,
-                    height: 160.w,
-                    decoration: BoxDecoration(
-                      color: const Color(0xfffffdfb),
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Column(
-                      children: [
-                        12.verticalSpace,
-                        Text(
-                          context.l10n.rent,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.lightGrey,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        28.verticalSpace,
-                        Text(
-                          '2 212',
-                          style: TextStyle(
-                            fontSize: 34.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.lightGrey,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        2.verticalSpace,
-                        Text(
-                          context.l10n.offers,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.lightGrey,
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
+                  BuyWidget(),
+                  RentWidget(),
                 ],
               ),
             ],
