@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:superapp/features/search/enum/menu_enum.dart';
 import 'package:superapp/features/search/widgets/list_of_variants_widget.dart';
 import 'package:superapp/features/search/widgets/maps_widget.dart';
 import 'package:superapp/features/search/widgets/menu_widget.dart';
@@ -18,6 +21,7 @@ class _SearchPageState extends State<SearchPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  MenuEnum selectedMenuEnum = MenuEnum.price;
 
   @override
   void initState() {
@@ -79,7 +83,14 @@ class _SearchPageState extends State<SearchPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const MenuWidget(),
+                  MenuWidget(
+                    selectedMenuEnum: selectedMenuEnum,
+                    onTapMenu: (MenuEnum menuEnum) {
+                      setState(() {
+                        selectedMenuEnum = menuEnum;
+                      });
+                    },
+                  ),
                   8.verticalSpace,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
