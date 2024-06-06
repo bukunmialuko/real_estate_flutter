@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:superapp/core/styling/app_colors.dart';
 import 'package:superapp/features/search/widgets/list_of_variants_widget.dart';
+import 'package:superapp/features/search/widgets/menu_widget.dart';
 import 'package:superapp/features/search/widgets/search_filter_widget.dart';
 import 'package:superapp/features/search/widgets/search_widget.dart';
 import 'package:superapp/features/search/widgets/send_widget.dart';
@@ -86,11 +87,11 @@ class _SearchPageState extends State<SearchPage>
               left: 32.w,
               right: 32.w,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
+                Stack(
+                  alignment: Alignment.bottomLeft,
                   children: [
                     Container(
                       width: 46.w,
@@ -113,11 +114,17 @@ class _SearchPageState extends State<SearchPage>
                         child: Assets.svg.walletSolid.svg(),
                       ),
                     ),
-                    8.verticalSpace,
-                    SendWidget(scale: _animation),
+                    const MenuWidget(),
                   ],
                 ),
-                ListOfVariantsWidget(scale: _animation),
+                8.verticalSpace,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SendWidget(scale: _animation),
+                    ListOfVariantsWidget(scale: _animation),
+                  ],
+                ),
               ],
             ),
           ),
