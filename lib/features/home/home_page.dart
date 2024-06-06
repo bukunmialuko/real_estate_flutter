@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:superapp/core/styling/app_colors.dart';
+import 'package:superapp/features/home/widgets/user_location_widget.dart';
 import 'package:superapp/generated/assets.gen.dart';
 import 'package:superapp/l10n/l10n.dart';
 
@@ -29,7 +31,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   late DraggableScrollableController _draggableScrollableController;
 
   @override
@@ -38,11 +41,13 @@ class _HomePageState extends State<HomePage> {
     _draggableScrollableController = DraggableScrollableController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _draggableScrollableController.animateTo(
-        0.68,
-        duration: const Duration(seconds: 2),
-        curve: Curves.easeInOut,
-      );
+      Future.delayed(const Duration(milliseconds: 3000), () {
+        _draggableScrollableController.animateTo(
+          0.68,
+          duration: const Duration(seconds: 2),
+          curve: Curves.easeInOut,
+        );
+      });
     });
   }
 
@@ -66,45 +71,12 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 13.w,
-                      vertical: 12.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SizedBox(
-                          width: 10.w,
-                          height: 10.h,
-                          child: Assets.svg.locationDotSolid.svg(
-                            colorFilter: const ColorFilter.mode(
-                              Color(0xff9f8d74),
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                        ),
-                        8.horizontalSpace,
-                        Text(
-                          'Saint Petersburg',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w300,
-                            color: const Color(0xff9f8d74),
-                            height: 0,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
+                  const UserLocationWidget(),
                   CircleAvatar(
                     backgroundImage: AssetImage(Assets.png.avatar.path),
-                  ),
+                  )
+                      .animate()
+                      .scale(duration: const Duration(milliseconds: 1500)),
                 ],
               ),
               28.verticalSpace,
@@ -117,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   height: 0,
                 ),
                 textAlign: TextAlign.left,
-              ),
+              ).animate().fadeIn(delay: const Duration(milliseconds: 2500)),
               8.verticalSpace,
               Text(
                 context.l10n.letsSelect,
@@ -261,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                     (context, index) => Tile(
                       model: imagePaths[index],
                     ),
-                    childCount: 8,
+                    childCount: imagePaths.length,
                   ),
                 ),
               ),
