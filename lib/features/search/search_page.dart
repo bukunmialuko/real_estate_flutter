@@ -91,7 +91,7 @@ class _SearchPageState extends State<SearchPage>
                   Marker(
                     width: 40.w,
                     height: 40.h,
-                    point: const LatLng(59.884772, 30.438456),
+                    point: const LatLng(59.886, 30.408),
                     child: Container(
                       decoration: BoxDecoration(
                         color: AppColors.darkOrange,
@@ -106,10 +106,70 @@ class _SearchPageState extends State<SearchPage>
                   Marker(
                     width: 40.w,
                     height: 40.h,
-                    point: const LatLng(59.88480, 30.5),
+                    point: const LatLng(59.873, 30.47),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: AppColors.white,
+                        color: AppColors.darkOrange,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.891, 30.47),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightOrange,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.912, 30.473),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightOrange,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.915, 30.418),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightOrange,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.924, 30.412),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.lightOrange,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8.r),
                           topRight: Radius.circular(8.r),

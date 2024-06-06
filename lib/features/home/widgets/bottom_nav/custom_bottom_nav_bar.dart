@@ -79,7 +79,7 @@ class _NavItem extends StatelessWidget {
               height: currentIndex == index ? 50.h : 42.w,
               decoration: BoxDecoration(
                 color: currentIndex == index
-                    ? AppColors.lightOrange
+                    ? AppColors.darkOrange
                     : AppColors.darkGrey,
                 shape: BoxShape.circle,
               ),
