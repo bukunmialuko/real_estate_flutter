@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:superapp/core/navigation/path/nav_paths.dart';
 import 'package:superapp/features/home/home_page.dart';
 import 'package:superapp/features/home/root_page.dart';
+import 'package:superapp/features/search/search_page.dart';
 import 'package:superapp/features/splash/splash_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -42,23 +43,11 @@ class AppModuleRouter {
               parentNavigatorKey: _shellNavigatorKey,
               path: NavPaths.search.urlPattern,
               pageBuilder: (context, state) =>
-                  NoTransitionPage(child: Container()),
+                  const NoTransitionPage(child: SearchPage()),
             ),
           ],
         ),
       ],
-      redirect: (BuildContext context, GoRouterState state) async {
-        // Always show splash on resume app
-        if (state.fullPath != null &&
-            state.fullPath != NavPaths.splash.urlPattern) {
-          // final user = GetIt.I.get<IAuthService>().currentUser();
-          // if (user == null) {
-          //   return NavPaths.signIn.urlPattern;
-          // }
-        }
-
-        return null;
-      },
       errorBuilder: (context, __) {
         return const Scaffold(
           body: Center(
