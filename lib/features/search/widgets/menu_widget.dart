@@ -54,7 +54,7 @@ class _MenuItemsState extends State<_MenuItems>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       vsync: this,
     );
 
