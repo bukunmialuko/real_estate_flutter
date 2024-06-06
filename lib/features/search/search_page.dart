@@ -69,9 +69,15 @@ class _SearchPageState extends State<SearchPage>
             debugPrint('tappable');
           },
           child: FlutterMap(
-            options: const MapOptions(
-              initialCenter: LatLng(59.884772, 30.438456),
+            options: MapOptions(
+              initialCenter: const LatLng(59.884772, 30.438456),
               initialZoom: 12,
+              onMapReady: () {
+                debugPrint('Map Ready');
+              },
+              onMapEvent: (e) {
+                debugPrint('Map event:$e');
+              },
             ),
             children: [
               TileLayer(
