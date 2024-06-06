@@ -3,26 +3,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:superapp/core/styling/app_colors.dart';
+import 'package:superapp/features/home/widgets/custom_list_tile.dart';
+import 'package:superapp/features/home/widgets/gradient_background_widget.dart';
 import 'package:superapp/features/home/widgets/user_location_widget.dart';
 import 'package:superapp/generated/assets.gen.dart';
 import 'package:superapp/l10n/l10n.dart';
-
-List<TileModel> imagePaths = [
-  TileModel(imagePath: Assets.rooms.room1.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room2.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room3.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room4.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room5.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room6.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room7.path, label: ''),
-];
-
-class TileModel {
-  TileModel({required this.imagePath, required this.label});
-
-  final String imagePath;
-  final String label;
-}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,7 +46,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const GradientBackground(),
+        const GradientBackgroundWidget(),
         SafeArea(
           minimum: const EdgeInsets.only(left: 20, right: 20),
           child: Column(
@@ -230,7 +215,7 @@ class _HomePageState extends State<HomePage>
                     ],
                   ),
                   childrenDelegate: SliverChildBuilderDelegate(
-                    (context, index) => Tile(
+                    (context, index) => CustomListTile(
                       model: imagePaths[index],
                     ),
                     childCount: imagePaths.length,
@@ -241,135 +226,6 @@ class _HomePageState extends State<HomePage>
           },
         ),
       ],
-    );
-  }
-}
-
-class Tile extends StatefulWidget {
-  const Tile({
-    required this.model,
-    super.key,
-  });
-
-  final TileModel model;
-
-  @override
-  State<Tile> createState() => _TileState();
-}
-
-class _TileState extends State<Tile> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 18.w, right: 18.w),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
-        image: DecorationImage(
-          image: Image.asset(widget.model.imagePath).image,
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          SizedBox(
-            height: 40.h,
-            child: Stack(
-              children: [
-                Center(
-                  child: Container(
-                    height: 40.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(56.r),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 10,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Text(
-                    'Gladkova., 25',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    height: 38.h,
-                    width: 38.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      size: 18,
-                      Icons.chevron_right_rounded,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10.h),
-          // Container(
-          //   height: 40.h,
-          //   width: double.infinity,
-          //   margin: EdgeInsets.only(bottom: 10.h, left: 18.w, right: 18.w),
-          //   decoration: BoxDecoration(
-          //     color: Colors.white.withOpacity(0.8),
-          //     borderRadius: BorderRadius.circular(56.r),
-          //   ),
-          //   child: Stack(
-          //     children: [
-          //       const Center(
-          //         child: Text('Gladkova., 25'),
-          //       ),
-          //       Container(
-          //         height: 40.h,
-          //         width: double.infinity,
-          //         margin:
-          //             EdgeInsets.only(bottom: 10.h, left: 18.w, right: 18.w),
-          //         decoration: BoxDecoration(
-          //           color: Colors.white.withOpacity(0.8),
-          //           borderRadius: BorderRadius.circular(56.r),
-          //         ),
-          //         child: const Icon(
-          //           Icons.chevron_right_rounded,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-        ],
-      ),
-    );
-  }
-}
-
-class GradientBackground extends StatelessWidget {
-  const GradientBackground({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: RadialGradient(
-          center: Alignment.centerRight,
-          radius: 1.3,
-          colors: [
-            Color(0xFFf9e1c4), Color(0xFFFFFFFF), // White color
-          ],
-        ),
-      ),
     );
   }
 }
