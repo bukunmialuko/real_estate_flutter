@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:superapp/core/styling/app_colors.dart';
 
@@ -20,11 +23,12 @@ class CustomBottomNavBar extends StatelessWidget {
       child: Container(
         height: 60.h,
         color: Colors.transparent,
+        margin: EdgeInsets.only(bottom: Platform.isAndroid ? 10.h : 4.h),
         child: Center(
           child: Container(
             width: 266.w,
             decoration: BoxDecoration(
-              color: AppColors.darkGrey.withOpacity(0.95),
+              color: AppColors.darkCarton.withOpacity(0.95),
               borderRadius: BorderRadius.circular(60.h),
             ),
             child: Row(
@@ -43,7 +47,13 @@ class CustomBottomNavBar extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      ).animate().slideY(
+            delay: const Duration(milliseconds: 5000),
+            duration: const Duration(milliseconds: 2000),
+            begin: 5,
+            end: 0,
+            curve: Curves.easeIn,
+          ),
     );
   }
 }
@@ -80,7 +90,7 @@ class _NavItem extends StatelessWidget {
               decoration: BoxDecoration(
                 color: currentIndex == index
                     ? AppColors.darkOrange
-                    : AppColors.darkGrey,
+                    : AppColors.darkCarton,
                 shape: BoxShape.circle,
               ),
               duration: const Duration(milliseconds: 300),
