@@ -97,6 +97,21 @@ class _SearchPageState extends State<SearchPage>
                       ),
                     ),
                   ),
+                  Marker(
+                    width: 40.w,
+                    height: 40.h,
+                    point: const LatLng(59.88480, 30.5),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8.r),
+                          topRight: Radius.circular(8.r),
+                          bottomRight: Radius.circular(8.r),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
