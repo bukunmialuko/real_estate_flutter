@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:show_up_animation/show_up_animation.dart';
 import 'package:superapp/core/styling/app_colors.dart';
 import 'package:superapp/features/home/widgets/buy_widget.dart';
 import 'package:superapp/features/home/widgets/custom_list_tile.dart';
@@ -76,17 +77,20 @@ class _HomePageState extends State<HomePage>
                   height: 0,
                 ),
                 textAlign: TextAlign.left,
-              ).animate().fadeIn(delay: const Duration(milliseconds: 2500)),
+              ).animate().fadeIn(delay: const Duration(milliseconds: 2000)),
               8.verticalSpace,
-              Text(
-                context.l10n.letsSelect,
-                style: TextStyle(
-                  fontSize: 34.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.black,
-                  height: 0,
+              ShowUpAnimation(
+                delayStart: const Duration(milliseconds: 2500),
+                animationDuration: const Duration(milliseconds: 2000),
+                child: Text(
+                  context.l10n.letsSelect,
+                  style: TextStyle(
+                    fontSize: 34.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.black,
+                    height: 0,
+                  ),
                 ),
-                textAlign: TextAlign.left,
               ),
               32.verticalSpace,
               const Row(

@@ -869,6 +869,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  show_up_animation:
+    dependency: "direct main"
+    description:
+      name: show_up_animation
+      sha256: a9a891d156e817c025dade1ce5f07ee65e71957314d248c8ddffc2108d69dc80
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
