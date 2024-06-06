@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
@@ -209,7 +211,7 @@ class _SearchPageState extends State<SearchPage>
         Positioned(
           left: 0,
           right: 0,
-          bottom: 80.h,
+          bottom: 80.h + (Platform.isAndroid ? 20.h : 20.h),
           child: Container(
             // color: AppColors.white,
             margin: EdgeInsets.only(
