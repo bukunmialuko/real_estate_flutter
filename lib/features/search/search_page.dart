@@ -63,7 +63,7 @@ class _SearchPageState extends State<SearchPage>
               child: Row(
                 children: [
                   Expanded(child: SearchWidget(scale: _animation)),
-                  SizedBox(width: 8.w),
+                  8.horizontalSpace,
                   SearchFilterWidget(scale: _animation),
                 ],
               ),

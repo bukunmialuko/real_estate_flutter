@@ -16,7 +16,7 @@ class SearchWidget extends StatelessWidget {
         width: 200,
         height: 46.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(48.h),
+          borderRadius: BorderRadius.circular(46.h),
           color: AppColors.white,
         ),
         padding: EdgeInsets.only(left: 16.w, right: 8.w),
@@ -25,19 +25,20 @@ class SearchWidget extends StatelessWidget {
             Container(
               width: 16.w,
               height: 16.w,
-              margin: EdgeInsets.only(right: 8.w),
-              child: Assets.svg.listSolid.svg(
+              margin: EdgeInsets.only(right: 12.w),
+              child: Assets.svg.search.svg(
                 colorFilter: const ColorFilter.mode(
                   AppColors.black,
                   BlendMode.srcIn,
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               child: Text(
                 'Saint Petersburg',
                 style: TextStyle(
                   color: AppColors.black,
+                  fontSize: 13.sp,
                 ),
               ),
             ),
