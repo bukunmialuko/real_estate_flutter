@@ -23,7 +23,7 @@ class CustomBottomNavBar extends StatelessWidget {
       child: Container(
         height: 60.h,
         color: Colors.transparent,
-        margin: EdgeInsets.only(bottom: Platform.isAndroid ? 10.h : 4.h),
+        margin: EdgeInsets.only(bottom: Platform.isIOS ? 0 : 8.h),
         child: Center(
           child: Container(
             width: 266.w,
