@@ -17,7 +17,7 @@ class SendWidget extends StatelessWidget {
         height: 46.h,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.3),
+          color: AppColors.white.withOpacity(0.4),
           shape: BoxShape.circle,
           boxShadow: const [
             BoxShadow(

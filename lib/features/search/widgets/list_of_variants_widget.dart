@@ -16,7 +16,7 @@ class ListOfVariantsWidget extends StatelessWidget {
         height: 42.h,
         padding: EdgeInsets.only(left: 14.w, right: 8.w),
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.3),
+          color: AppColors.white.withOpacity(0.4),
           borderRadius: BorderRadius.circular(42.h),
           boxShadow: const [
             BoxShadow(

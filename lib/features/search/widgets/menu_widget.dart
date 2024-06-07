@@ -55,7 +55,7 @@ class _MenuWidgetState extends State<MenuWidget>
             width: 46.h,
             height: 46.h,
             decoration: BoxDecoration(
-              color: AppColors.white.withOpacity(0.3),
+              color: AppColors.white.withOpacity(0.4),
               shape: BoxShape.circle,
               boxShadow: const [
                 BoxShadow(
