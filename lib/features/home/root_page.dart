@@ -21,7 +21,7 @@ class _RootPageState extends State<RootPage> {
       body: widget.child,
       bottomNavigationBar: CustomBottomNavBar(
         items: [
-          Assets.svg.search.svg(),
+          Assets.svg.search.svg(key: const Key('svg_search')),
           Assets.svg.messageSolid.svg(),
           Assets.svg.houseSolid.svg(),
           Assets.svg.heartSolid.svg(),

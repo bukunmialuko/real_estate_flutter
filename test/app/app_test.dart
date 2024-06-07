@@ -4,7 +4,7 @@ import 'package:superapp/features/splash/splash_page.dart';
 
 void main() {
   group('App', () {
-    testWidgets('renders CounterPage', (tester) async {
+    testWidgets('renders App', (tester) async {
       await tester.pumpWidget(const App());
       expect(find.byType(SplashPage), findsOneWidget);
     });
