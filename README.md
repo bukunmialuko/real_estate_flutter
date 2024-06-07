@@ -5,9 +5,9 @@ Flutter Engineer Translation Test
 ---
 
 ## Demo ▶️
-| Android                                                                                                           | iOS                                |
-|-------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| ![Android](https://github.com/bukunmialuko/real_estate_flutter/blob/task/docs/doc/emmulator-screen-recording.gif) |![iOS](https://github.com/bukunmialuko/real_estate_flutter/blob/task/docs/doc/simulator-screen-recording.gif)|
+| Android                                                                                                         | iOS                                |
+|-----------------------------------------------------------------------------------------------------------------|------------------------------------|
+|![Android](https://github.com/bukunmialuko/real_estate_flutter/blob/task/docs/doc/emmulator-screen-recording.gif)|![iOS](https://github.com/bukunmialuko/real_estate_flutter/blob/task/docs/doc/simulator-screen-recording.gif)|
 
 ## Getting Started 🚀
 
