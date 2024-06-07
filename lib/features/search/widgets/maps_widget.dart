@@ -84,7 +84,7 @@ class _MapsWidgetState extends State<MapsWidget>
               Marker(
                 width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.877, 30.408),
+                point: const LatLng(59.880, 30.408),
                 child: _AnimatedMarker(
                   scaleAnimation: _scaleAnimation,
                   selectedMenuEnum: widget.selectedMenuEnum,
@@ -94,7 +94,7 @@ class _MapsWidgetState extends State<MapsWidget>
               Marker(
                 width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.865, 30.47),
+                point: const LatLng(59.868, 30.47),
                 child: _AnimatedMarker(
                   scaleAnimation: _scaleAnimation,
                   selectedMenuEnum: widget.selectedMenuEnum,
@@ -104,7 +104,7 @@ class _MapsWidgetState extends State<MapsWidget>
               Marker(
                 width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.8829, 30.47),
+                point: const LatLng(59.8838, 30.47),
                 child: _AnimatedMarker(
                   scaleAnimation: _scaleAnimation,
                   selectedMenuEnum: widget.selectedMenuEnum,
@@ -195,7 +195,7 @@ class _AnimatedMarker extends StatelessWidget {
                   color: AppColors.white,
                   size: 20,
                 ).animate().fadeIn(
-                    delay: const Duration(milliseconds: 1500),
+                    delay: const Duration(milliseconds: 1600),
                     duration: const Duration(milliseconds: 500),
                   ),
         ),

@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:superapp/core/navigation/router/app_router.dart';
+import 'package:superapp/core/styling/app_colors.dart';
 import 'package:superapp/generated/fonts.gen.dart';
 import 'package:superapp/l10n/l10n.dart';
 
@@ -19,10 +20,10 @@ class App extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp.router(
-          color: const Color(0xff2C4E91),
+          color: AppColors.darkOrange,
           onGenerateTitle: (context) => context.l10n.appName,
           theme: ThemeData(
-            primaryColor: const Color(0xFF49B356),
+            primaryColor: AppColors.darkOrange,
             primaryColorDark: const Color(0xFF1A212A),
             scaffoldBackgroundColor: const Color(0xFFFFFFFF),
             appBarTheme: const AppBarTheme(
