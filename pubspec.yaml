@@ -29,6 +29,7 @@ dependencies:
   latlong2: ^0.9.1
   lottie: ^3.1.2
   show_up_animation: ^2.0.0
+#  patrol: ^3.7.3
 
 
 
