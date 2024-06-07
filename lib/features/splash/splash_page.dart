@@ -18,6 +18,7 @@ class _SplashPageState extends State<SplashPage>
   @override
   void initState() {
     super.initState();
+
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -25,9 +26,11 @@ class _SplashPageState extends State<SplashPage>
       ),
     );
 
-    _animationController
-      ..forward()
-      ..addStatusListener(animationListener);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _animationController
+        ..forward()
+        ..addStatusListener(animationListener);
+    });
   }
 
   void animationListener(AnimationStatus status) {
