@@ -88,12 +88,10 @@ class _CustomListTileState extends State<CustomListTile> {
                       duration: const Duration(milliseconds: 500),
                     ),
                 Row(
-                  mainAxisAlignment: expand
-                      ? MainAxisAlignment.spaceBetween
-                      : MainAxisAlignment.center,
+                  mainAxisAlignment:
+                      expand ? MainAxisAlignment.end : MainAxisAlignment.center,
                   children: [
-                    const SizedBox(),
-                    Align(
+                    Flexible(
                       child: Container(
                         height: 38.h,
                         width: 38.h,

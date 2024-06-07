@@ -61,15 +61,17 @@ class _UserLocationWidgetState extends State<UserLocationWidget> {
             ),
           ),
           8.horizontalSpace,
-          Text(
-            'Saint Petersburg',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w300,
-              color: const Color(0xff9f8d74),
-              height: 0,
+          Flexible(
+            child: Text(
+              'Saint Petersburg',
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w300,
+                color: const Color(0xff9f8d74),
+                height: 0,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ],
       ).animate().fadeIn(delay: const Duration(milliseconds: 1000)),
