@@ -48,7 +48,7 @@ class _SearchPageState extends State<SearchPage>
     return Stack(
       fit: StackFit.expand,
       children: [
-        const MapsWidget(),
+        MapsWidget(selectedMenuEnum: selectedMenuEnum),
         // Note: Its common for search to be done in another UI
         Align(
           alignment: Alignment.topCenter,
