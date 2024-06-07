@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:superapp/generated/assets.gen.dart';
 
 List<TileModel> imagePaths = [
-  TileModel(imagePath: Assets.rooms.room1.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room2.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room3.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room4.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room5.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room6.path, label: ''),
-  TileModel(imagePath: Assets.rooms.room7.path, label: ''),
+  TileModel(imagePath: Assets.rooms.room1.path, label: 'Gladkova St., 25'),
+  TileModel(imagePath: Assets.rooms.room2.path, label: 'Gubina St., 11'),
+  TileModel(imagePath: Assets.rooms.room3.path, label: 'Trefoleva St., 47'),
+  TileModel(imagePath: Assets.rooms.room4.path, label: 'Sedova St., 22'),
+  TileModel(imagePath: Assets.rooms.room5.path, label: 'London St., 34'),
+  TileModel(imagePath: Assets.rooms.room6.path, label: 'Ikeja St., 53'),
+  TileModel(imagePath: Assets.rooms.room7.path, label: 'Diego St., 34'),
 ];
 
 class TileModel {
@@ -45,7 +45,7 @@ class _CustomListTileState extends State<CustomListTile> {
         borderRadius: BorderRadius.circular(18.r),
         image: DecorationImage(
           image: Image.asset(widget.model.imagePath).image,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       ),
       child: Column(
@@ -76,7 +76,7 @@ class _CustomListTileState extends State<CustomListTile> {
                 ),
                 Center(
                   child: Text(
-                    'Gladkova., 25',
+                    widget.model.label,
                     style: TextStyle(
                       fontSize: 13.sp,
                       fontWeight: FontWeight.w400,

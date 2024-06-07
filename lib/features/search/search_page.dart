@@ -34,7 +34,10 @@ class _SearchPageState extends State<SearchPage>
       parent: _controller,
       curve: Curves.easeIn,
     );
-    _controller.forward(); // Start the animation
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _controller.forward();
+    }); // Start the animation
   }
 
   @override
