@@ -4,6 +4,11 @@ Flutter Engineer Translation Test
 
 ---
 
+## Demo ▶️
+| Android          | iOS                                |
+|------------------|------------------------------------|
+|![iOS](simulator-screen-recording)| ![iOS](simulator-screen-recording) |
+
 ## Getting Started 🚀
 
 This project contains 3 flavors:
