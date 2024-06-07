@@ -26,7 +26,10 @@ class AppModuleRouter {
           builder: (context, state) => const SplashPage(),
         ),
 
-        /// Home / Root
+        /// Note: I would have used StatefulShellRoute.indexedStack to prevent
+        /// page reload, but this will make testing a bit difficult because
+        /// the app will need to be killed and re-stared to see the animations
+        /// properly, also, the map takes some time to initialise in memory
         ShellRoute(
           parentNavigatorKey: _rootNavigatorKey,
           navigatorKey: _shellNavigatorKey,
