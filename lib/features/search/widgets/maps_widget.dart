@@ -196,7 +196,7 @@ class _AnimatedMarker extends StatelessWidget {
                     duration: const Duration(milliseconds: 500),
                   )
               : const Icon(
-                  Icons.house,
+                  Icons.location_city_outlined,
                   color: AppColors.white,
                   size: 20,
                 ).animate().fadeIn(
