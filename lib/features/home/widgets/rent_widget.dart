@@ -49,7 +49,7 @@ class RentWidget extends StatelessWidget {
         ],
       ),
     )
-        .animate(delay: const Duration(milliseconds: 2000))
-        .scale(duration: const Duration(milliseconds: 3000));
+        .animate(delay: const Duration(milliseconds: 1500))
+        .scale(duration: const Duration(milliseconds: 1000));
   }
 }

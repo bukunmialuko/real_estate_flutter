@@ -42,7 +42,7 @@ class _CustomListTileState extends State<CustomListTile> {
     return Container(
       padding: EdgeInsets.only(left: 18.w, right: 18.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(18.r),
         image: DecorationImage(
           image: Image.asset(widget.model.imagePath).image,
           fit: BoxFit.fill,
@@ -55,7 +55,7 @@ class _CustomListTileState extends State<CustomListTile> {
           AnimatedContainer(
             height: 42.h,
             width: expand ? screenWidth : 42.h,
-            duration: const Duration(milliseconds: 2000),
+            duration: const Duration(milliseconds: 1000),
             child: Stack(
               children: [
                 Center(
@@ -63,7 +63,7 @@ class _CustomListTileState extends State<CustomListTile> {
                     height: 40.h,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(56.r),
+                      borderRadius: BorderRadius.circular(40.h),
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.black12,
@@ -74,16 +74,19 @@ class _CustomListTileState extends State<CustomListTile> {
                     ),
                   ),
                 ),
-                const Center(
+                Center(
                   child: Text(
                     'Gladkova., 25',
                     style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w400,
                       color: Colors.black,
                     ),
                   ),
-                ).animate().fadeIn(delay: const Duration(milliseconds: 4000)),
+                ).animate().fadeIn(
+                      delay: const Duration(milliseconds: 4800),
+                      duration: const Duration(milliseconds: 500),
+                    ),
                 Row(
                   mainAxisAlignment: expand
                       ? MainAxisAlignment.spaceBetween
@@ -94,6 +97,7 @@ class _CustomListTileState extends State<CustomListTile> {
                       child: Container(
                         height: 38.h,
                         width: 38.h,
+                        margin: EdgeInsets.only(right: expand ? 2.w : 0),
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.8),
                           shape: BoxShape.circle,
@@ -108,11 +112,16 @@ class _CustomListTileState extends State<CustomListTile> {
                 ),
               ],
             ),
-          ).animate(onComplete: (s) {
-            setState(() {
-              expand = true;
-            });
-          }).scale(delay: const Duration(milliseconds: 2000)),
+          ).animate(
+            onComplete: (s) {
+              setState(() {
+                expand = true;
+              });
+            },
+          ).scale(
+            delay: const Duration(milliseconds: 3700),
+            duration: const Duration(milliseconds: 500),
+          ),
           SizedBox(height: 10.h),
         ],
       ),
