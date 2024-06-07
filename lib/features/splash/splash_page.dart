@@ -33,7 +33,9 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   void dispose() {
-    _animationController.removeStatusListener(animationListener);
+    _animationController
+      ..removeStatusListener(animationListener)
+      ..dispose();
     super.dispose();
   }
 
