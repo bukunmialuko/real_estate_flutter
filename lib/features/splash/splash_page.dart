@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:superapp/core/navigation/path/nav_paths.dart';
 import 'package:superapp/generated/assets.gen.dart';
@@ -17,8 +18,12 @@ class _SplashPageState extends State<SplashPage>
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 500,
+      ),
+    );
 
     _animationController
       ..forward()
@@ -47,8 +52,10 @@ class _SplashPageState extends State<SplashPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Assets.animation.homeButton.lottie(
-              controller: _animationController,
+            child: SizedBox(
+              width: 120.w,
+              height: 120.w,
+              child: Assets.png.logo.image(),
             ),
           ),
         ],
