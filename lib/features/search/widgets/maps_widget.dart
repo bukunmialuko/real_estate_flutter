@@ -5,9 +5,12 @@ import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_ti
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:superapp/core/styling/app_colors.dart';
+import 'package:superapp/features/search/enum/menu_enum.dart';
 
 class MapsWidget extends StatefulWidget {
-  const MapsWidget({super.key});
+  const MapsWidget({required this.selectedMenuEnum, super.key});
+
+  final MenuEnum selectedMenuEnum;
 
   @override
   State<MapsWidget> createState() => _MapsWidgetState();
@@ -18,13 +21,12 @@ class _MapsWidgetState extends State<MapsWidget>
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
-  bool maxExpansion = true;
-
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
 
@@ -33,7 +35,11 @@ class _MapsWidgetState extends State<MapsWidget>
       curve: Curves.easeInOut,
     );
 
-    _controller.forward(); // Start the animation
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 600), () {
+        _controller.forward(); // Start the animation
+      });
+    });
   }
 
   @override
@@ -67,15 +73,9 @@ class _MapsWidgetState extends State<MapsWidget>
         debugPrint('tappable');
       },
       child: FlutterMap(
-        options: MapOptions(
-          initialCenter: const LatLng(59.884772, 30.438456),
+        options: const MapOptions(
+          initialCenter: LatLng(59.884772, 30.438456),
           initialZoom: 12,
-          onMapReady: () {
-            debugPrint('Map Ready');
-          },
-          onMapEvent: (e) {
-            debugPrint('Map event:$e');
-          },
         ),
         children: [
           TileLayer(
@@ -89,124 +89,61 @@ class _MapsWidgetState extends State<MapsWidget>
               Marker(
                 width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.886, 30.408),
-                child: ScaleTransition(
-                  scale: _scaleAnimation,
-                  alignment: Alignment.bottomLeft,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          maxExpansion = false;
-                        });
-                      },
-                      child: AnimatedContainer(
-                        width: maxExpansion ? 80.w : 40.w,
-                        height: 40.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.darkOrange,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12.r),
-                            topRight: Radius.circular(12.r),
-                            bottomRight: Radius.circular(12.r),
-                          ),
-                        ),
-                        duration: const Duration(milliseconds: 1000),
-                        alignment: Alignment.center,
-                        child: maxExpansion
-                            ? Text(
-                                '13,3 mn P',
-                                style: TextStyle(
-                                  color: AppColors.white,
-                                  fontSize: 13.sp,
-                                ),
-                              ).animate().fadeIn(
-                                  delay: const Duration(milliseconds: 1500),
-                                )
-                            : const Icon(Icons.house, color: AppColors.white)
-                                .animate()
-                                .fadeIn(
-                                  delay: const Duration(milliseconds: 1500),
-                                ),
-                      ),
-                    ),
-                  ),
+                point: const LatLng(59.880, 30.408),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '13,3 mn P',
                 ),
               ),
               Marker(
-                width: 40.w,
+                width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.873, 30.47),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.darkOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.r),
-                      topRight: Radius.circular(8.r),
-                      bottomRight: Radius.circular(8.r),
-                    ),
-                  ),
+                point: const LatLng(59.868, 30.47),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '6,95 mn P',
                 ),
               ),
               Marker(
-                width: 40.w,
+                width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.891, 30.47),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.lightOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.r),
-                      topRight: Radius.circular(8.r),
-                      bottomRight: Radius.circular(8.r),
-                    ),
-                  ),
+                point: const LatLng(59.8838, 30.47),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '8,5 mn P',
                 ),
               ),
               Marker(
-                width: 40.w,
+                width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.912, 30.473),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.lightOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.r),
-                      topRight: Radius.circular(8.r),
-                      bottomRight: Radius.circular(8.r),
-                    ),
-                  ),
+                point: const LatLng(59.904, 30.471),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '7,8 mn P',
                 ),
               ),
               Marker(
-                width: 40.w,
+                width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.915, 30.418),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.lightOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.r),
-                      topRight: Radius.circular(8.r),
-                      bottomRight: Radius.circular(8.r),
-                    ),
-                  ),
+                point: const LatLng(59.9075, 30.423),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '11 mn P',
                 ),
               ),
               Marker(
-                width: 40.w,
+                width: 80.w,
                 height: 40.h,
-                point: const LatLng(59.924, 30.412),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.lightOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8.r),
-                      topRight: Radius.circular(8.r),
-                      bottomRight: Radius.circular(8.r),
-                    ),
-                  ),
+                point: const LatLng(59.916, 30.414),
+                child: _AnimatedMarker(
+                  scaleAnimation: _scaleAnimation,
+                  selectedMenuEnum: widget.selectedMenuEnum,
+                  price: '10,3 mn P',
                 ),
               ),
             ],
@@ -218,10 +155,56 @@ class _MapsWidgetState extends State<MapsWidget>
 }
 
 class _AnimatedMarker extends StatelessWidget {
-  const _AnimatedMarker({super.key});
+  const _AnimatedMarker({
+    required this.scaleAnimation,
+    required this.selectedMenuEnum,
+    required this.price,
+  });
 
+  final Animation<double> scaleAnimation;
+  final MenuEnum selectedMenuEnum;
+  final String price;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ScaleTransition(
+      scale: scaleAnimation,
+      alignment: Alignment.bottomLeft,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: AnimatedContainer(
+          width: selectedMenuEnum == MenuEnum.price ? 80.w : 40.h,
+          duration: const Duration(milliseconds: 700),
+          height: 40.h,
+          decoration: BoxDecoration(
+            color: AppColors.darkOrange,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12.r),
+              topRight: Radius.circular(12.r),
+              bottomRight: Radius.circular(12.r),
+            ),
+          ),
+          alignment: Alignment.center,
+          child: selectedMenuEnum == MenuEnum.price
+              ? Text(
+                  price,
+                  style: TextStyle(
+                    color: AppColors.white,
+                    fontSize: 13.sp,
+                  ),
+                ).animate().fadeIn(
+                    delay: const Duration(milliseconds: 1100),
+                    duration: const Duration(milliseconds: 500),
+                  )
+              : const Icon(
+                  Icons.house,
+                  color: AppColors.white,
+                  size: 20,
+                ).animate().fadeIn(
+                    delay: const Duration(milliseconds: 1000),
+                    duration: const Duration(milliseconds: 500),
+                  ),
+        ),
+      ),
+    );
   }
 }

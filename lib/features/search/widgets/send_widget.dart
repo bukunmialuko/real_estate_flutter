@@ -13,11 +13,11 @@ class SendWidget extends StatelessWidget {
     return ScaleTransition(
       scale: scale,
       child: Container(
-        width: 46.w,
-        height: 46.w,
+        width: 46.h,
+        height: 46.h,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.3),
+          color: AppColors.white.withOpacity(0.4),
           shape: BoxShape.circle,
           boxShadow: const [
             BoxShadow(

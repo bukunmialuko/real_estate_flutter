@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:superapp/core/styling/app_colors.dart';
-import 'package:superapp/generated/assets.gen.dart';
 
 class SearchFilterWidget extends StatelessWidget {
   const SearchFilterWidget({required this.scale, super.key});
@@ -13,21 +12,16 @@ class SearchFilterWidget extends StatelessWidget {
     return ScaleTransition(
       scale: scale,
       child: Container(
-        width: 46.w,
-        height: 46.w,
+        width: 46.h,
+        height: 46.h,
         decoration: const BoxDecoration(
           color: AppColors.white,
           shape: BoxShape.circle,
         ),
-        alignment: Alignment.center,
-        child: SizedBox(
-          width: 14.w,
-          height: 14.w,
-          child: Assets.svg.filterSolid.svg(
-            colorFilter: const ColorFilter.mode(
-              AppColors.black,
-              BlendMode.srcIn,
-            ),
+        child: const Center(
+          child: Icon(
+            Icons.toc_outlined,
+            size: 20,
           ),
         ),
       ),

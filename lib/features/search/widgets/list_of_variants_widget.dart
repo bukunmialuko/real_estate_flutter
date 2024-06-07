@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:superapp/core/styling/app_colors.dart';
 import 'package:superapp/generated/assets.gen.dart';
+import 'package:superapp/l10n/l10n.dart';
 
 class ListOfVariantsWidget extends StatelessWidget {
   const ListOfVariantsWidget({required this.scale, super.key});
@@ -12,13 +13,11 @@ class ListOfVariantsWidget extends StatelessWidget {
     return ScaleTransition(
       scale: scale,
       child: Container(
-        width: 150.w,
-        height: 46.h,
-        padding: EdgeInsets.only(left: 16.w, right: 8.w),
+        height: 42.h,
+        padding: EdgeInsets.only(left: 14.w, right: 8.w),
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.3),
-          borderRadius: BorderRadius.circular(46.h),
-          // boxShadow: AppBoxShadow.primaryBoxShadow,
+          color: AppColors.white.withOpacity(0.4),
+          borderRadius: BorderRadius.circular(42.h),
           boxShadow: const [
             BoxShadow(
               color: Colors.black26,
@@ -30,19 +29,20 @@ class ListOfVariantsWidget extends StatelessWidget {
         alignment: Alignment.center,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 15.w,
-              height: 15.w,
-              margin: EdgeInsets.only(right: 8.w),
+              width: 12.w,
+              height: 12.w,
+              margin: EdgeInsets.only(right: 6.w),
               child: Assets.svg.listSolid.svg(),
             ),
-            const Expanded(
-              child: Text(
-                'List of variants',
-                style: TextStyle(
-                  color: AppColors.white,
-                ),
+            Text(
+              context.l10n.listOfVariants,
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w300,
               ),
             ),
           ],
