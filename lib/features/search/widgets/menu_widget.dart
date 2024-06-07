@@ -26,7 +26,7 @@ class _MenuWidgetState extends State<MenuWidget>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
 
@@ -34,8 +34,6 @@ class _MenuWidgetState extends State<MenuWidget>
       parent: _controller,
       curve: Curves.easeInOut,
     );
-
-    _controller.forward();
   }
 
   @override

@@ -24,8 +24,9 @@ class _MapsWidgetState extends State<MapsWidget>
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
 
@@ -34,7 +35,11 @@ class _MapsWidgetState extends State<MapsWidget>
       curve: Curves.easeInOut,
     );
 
-    _controller.forward(); // Start the animation
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 600), () {
+        _controller.forward(); // Start the animation
+      });
+    });
   }
 
   @override
@@ -168,6 +173,7 @@ class _AnimatedMarker extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: AnimatedContainer(
           width: selectedMenuEnum == MenuEnum.price ? 80.w : 40.h,
+          duration: const Duration(milliseconds: 700),
           height: 40.h,
           decoration: BoxDecoration(
             color: AppColors.darkOrange,
@@ -177,7 +183,6 @@ class _AnimatedMarker extends StatelessWidget {
               bottomRight: Radius.circular(12.r),
             ),
           ),
-          duration: const Duration(milliseconds: 1000),
           alignment: Alignment.center,
           child: selectedMenuEnum == MenuEnum.price
               ? Text(
@@ -187,7 +192,7 @@ class _AnimatedMarker extends StatelessWidget {
                     fontSize: 13.sp,
                   ),
                 ).animate().fadeIn(
-                    delay: const Duration(milliseconds: 1500),
+                    delay: const Duration(milliseconds: 1100),
                     duration: const Duration(milliseconds: 500),
                   )
               : const Icon(
@@ -195,7 +200,7 @@ class _AnimatedMarker extends StatelessWidget {
                   color: AppColors.white,
                   size: 20,
                 ).animate().fadeIn(
-                    delay: const Duration(milliseconds: 1600),
+                    delay: const Duration(milliseconds: 1000),
                     duration: const Duration(milliseconds: 500),
                   ),
         ),

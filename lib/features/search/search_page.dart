@@ -27,12 +27,12 @@ class _SearchPageState extends State<SearchPage>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 700),
       vsync: this,
     );
     _animation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.easeInOut,
+      curve: Curves.easeIn,
     );
     _controller.forward(); // Start the animation
   }
