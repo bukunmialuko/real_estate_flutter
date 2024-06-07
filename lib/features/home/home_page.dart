@@ -52,8 +52,8 @@ class _HomePageState extends State<HomePage>
         const GradientBackgroundWidget(),
         SafeArea(
           minimum: const EdgeInsets.only(left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: ListView(
+            physics: const ClampingScrollPhysics(),
             children: [
               8.verticalSpace,
               Row(

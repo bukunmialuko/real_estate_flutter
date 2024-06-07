@@ -63,7 +63,6 @@ class AnimatedCountTextState extends State<AnimatedCountText>
         fontSize: 34.sp,
         fontWeight: FontWeight.w600,
         color: widget.textColor,
-        height: 0,
       ),
       textAlign: TextAlign.center,
     );
