@@ -17,12 +17,9 @@ class _UserLocationWidgetState extends State<UserLocationWidget> {
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(milliseconds: 500), () {
-        setState(() {
-          expand = true;
-        });
+      setState(() {
+        expand = true;
       });
     });
   }
@@ -30,8 +27,8 @@ class _UserLocationWidgetState extends State<UserLocationWidget> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 1700),
-      // curve: Curves.easeInOut,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOut,
       width: expand ? 148.w : 0,
       height: 44.h,
       padding: EdgeInsets.symmetric(
@@ -75,7 +72,7 @@ class _UserLocationWidgetState extends State<UserLocationWidget> {
             textAlign: TextAlign.center,
           ),
         ],
-      ).animate().fadeIn(delay: const Duration(milliseconds: 2200)),
+      ).animate().fadeIn(delay: const Duration(milliseconds: 1000)),
     );
   }
 }

@@ -29,10 +29,10 @@ class _HomePageState extends State<HomePage>
     _draggableScrollableController = DraggableScrollableController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(milliseconds: 5000), () {
+      Future.delayed(const Duration(milliseconds: 3500), () {
         _draggableScrollableController.animateTo(
           0.68,
-          duration: const Duration(seconds: 2),
+          duration: const Duration(milliseconds: 1000),
           curve: Curves.easeInOut,
         );
       });
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage>
                     backgroundImage: AssetImage(Assets.png.avatar.path),
                   )
                       .animate()
-                      .scale(duration: const Duration(milliseconds: 1500)),
+                      .scale(duration: const Duration(milliseconds: 900)),
                 ],
               ),
               28.verticalSpace,
@@ -77,11 +77,11 @@ class _HomePageState extends State<HomePage>
                   height: 0,
                 ),
                 textAlign: TextAlign.left,
-              ).animate().fadeIn(delay: const Duration(milliseconds: 2000)),
+              ).animate().fadeIn(delay: const Duration(milliseconds: 1200)),
               8.verticalSpace,
               ShowUpAnimation(
-                delayStart: const Duration(milliseconds: 2500),
-                animationDuration: const Duration(milliseconds: 2000),
+                delayStart: const Duration(milliseconds: 1000),
+                animationDuration: const Duration(milliseconds: 900),
                 child: Text(
                   context.l10n.letsSelect,
                   style: TextStyle(
@@ -105,12 +105,12 @@ class _HomePageState extends State<HomePage>
         ),
         DraggableScrollableSheet(
           maxChildSize: 0.8,
-          initialChildSize: 0.44,
+          initialChildSize: 0.3,
           minChildSize: 0.2,
           controller: _draggableScrollableController,
           builder: (context, scrollableController) {
             return ClipRRect(
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(28.r),
               child: ColoredBox(
                 color: Colors.white,
                 child: GridView.custom(

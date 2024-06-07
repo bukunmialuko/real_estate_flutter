@@ -28,7 +28,7 @@ class AnimatedCountTextState extends State<AnimatedCountText>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 3,
+        milliseconds: 1400,
       ),
     );
 

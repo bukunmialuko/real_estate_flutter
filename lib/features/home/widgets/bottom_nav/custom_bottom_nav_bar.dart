@@ -48,11 +48,11 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
         ),
       ).animate().slideY(
-            delay: const Duration(milliseconds: 5000),
-            duration: const Duration(milliseconds: 2000),
+            delay: const Duration(milliseconds: 4200),
+            duration: const Duration(milliseconds: 1800),
             begin: 5,
             end: 0,
-            curve: Curves.easeIn,
+            curve: Curves.easeInOut,
           ),
     );
   }
